@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Vehicle {
+protected:
+ string brand, model;
+ double mileage;
+public:
+ void setVehicleDetails(string b, string m, double mi) {
+ brand = b;
+ model = m;
+ mileage = mi;
+ }
+ void displayVehicleDetails() {
+ cout << "Vehicle: " << brand << " " << model << endl;
+ cout << "Mileage: " << mileage << " miles" << endl;
+ }
+};
+class Car : public Vehicle {
+private:
+ double fuelUsed, distance, fuelEfficiency;
+public:
+ void setCarDetails(double fuel, double dist) {
+ fuelUsed = fuel;
+ distance = dist;
+ fuelEfficiency = distance / fuelUsed;
+ }
+ void displayCarDetails() {
+ displayVehicleDetails();
+ cout << "Fuel Efficiency: " << fuelEfficiency << " miles/gallon" << endl;
+ }
+};
+int main() {
+ int vehicleType;
+ cin >> vehicleType;
+ if (vehicleType == 1) {
+ Car car;
+ string brand, model;
+ double mileage, fuel, distance;
+ cin >> brand >> model >> mileage;
+ car.setVehicleDetails(brand, model, mileage);
+ cin >> fuel >> distance;
+ car.setCarDetails(fuel, distance);
+ car.displayCarDetails();
+ } else {
+ cout << "Invalid choice\n";
+ }
+ return 0;
+}
