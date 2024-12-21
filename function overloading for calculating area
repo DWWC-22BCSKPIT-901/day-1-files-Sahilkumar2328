@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+double area(double r) {
+ return 3.14 * r * r;
+}
+int area(int l, int b) {
+ return l * b;
+}
+double area(double base, double height) {
+ return 0.5 * base * height;
+}
+int main() {
+ double r, base, height;
+ int l, b;
+ cout<<"radius = ";
+ cin >> r;
+ cout<<" length and breath = ";
+ cin >> l >> b;
+ cout<<"base and height = ";
+ cin >> base >> height;
+ cout << area(r) << endl;
+ cout << area(l, b) << endl;
+ cout << area(base, height) << endl;
+ return 0;
+}
